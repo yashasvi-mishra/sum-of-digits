@@ -1,23 +1,24 @@
 #include<stdio.h>
-int sum_of_digits(int n);
+int sum_of_digits(int num);
 main()
 {
-	int num=1234;
-	int sum=sum_of_digits(num);
-	printf("input number: %d \n sum of digits: %d",num,sum);
-	
+	int num,sum;
+	printf("input number:");
+	scanf("%d",&num);
+	sum=sum_of_digits(num);
+	printf("sum of digits in %d is %d", num,sum);
 	return 0;
 }
 
-int sum_of_digits(int n)
+int sum_of_digits(int num)
  {
-	if(n==0)
+	if(num!=0)
 	{
-	return 0;
+		return (num%10 + sum_of_digits(num/10));
 	}
 	else
 	{
-		return (n%10 + sum_of_digits(n/10));
+		return 0;
 	}
 	
 }
